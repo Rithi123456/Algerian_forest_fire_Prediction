@@ -1,14 +1,24 @@
-# Algerian Forest Fire Prediction Using Machine Learning
+# Algerian Forest Fire Prediction System
 
 ## Project Overview
 
-This project focuses on predicting the Fire Weather Index (FWI) using meteorological and environmental factors from the Algerian Forest Fires dataset. The objective is to analyze the relationship between weather conditions and fire risk while building an accurate regression model for prediction.
+The **Algerian Forest Fire Prediction System** is an end-to-end machine learning web application designed to predict the **Fire Weather Index (FWI)** using meteorological and environmental parameters.
 
-The project follows a complete machine learning workflow, including data preprocessing, feature engineering, exploratory data analysis, model training, evaluation, and model serialization for future deployment.
+This project combines **Machine Learning, Data Analytics, and Flask Web Development** to provide a complete forest fire risk intelligence system.
 
-## Dataset Description
+The application allows users to:
 
-The dataset contains weather and fire-related measurements collected from regions in Algeria. Key features include:
+* Predict forest fire risk based on real-time environmental inputs
+* Analyze fire risk using a trained machine learning model
+* Visualize prediction factors using interactive analytics charts
+* Explore historical dataset insights through dashboard analytics
+
+
+## Features
+
+### Forest Fire Prediction
+
+Users can input environmental factors such as:
 
 * Temperature
 * Relative Humidity (RH)
@@ -20,44 +30,78 @@ The dataset contains weather and fire-related measurements collected from region
 * Fire Class
 * Region
 
-Target Variable:
+The system predicts:
+
+* **Fire Weather Index (FWI)**
+* Risk Level Classification:
+
+  * Low Risk
+  * Moderate Risk
+  * High Risk
+  * Extreme Risk
+
+### Analytics Dashboard
+
+The analytics dashboard provides:
+
+* Latest prediction analysis
+* Input factor visualization using Chart.js
+* Historical dataset insights
+* Fire vs Non-Fire distribution
+* Region-wise fire occurrence analysis
+
+## Dataset Description
+
+The project uses the **Algerian Forest Fires Dataset**, containing weather and fire-related measurements from two Algerian regions:
+
+* Bejaia
+* Sidi-Bel Abbes
+
+### Features:
+
+* Temperature
+* Relative Humidity (RH)
+* Wind Speed (Ws)
+* Rain
+* FFMC
+* DMC
+* ISI
+* Classes
+* Region
+
+### Target Variable:
 
 * Fire Weather Index (FWI)
 
-## Project Workflow
+## Machine Learning Workflow
 
 ### Data Preprocessing
 
-* Loaded and explored the dataset
-* Removed unnecessary date-related columns
-* Cleaned and encoded categorical variables
-* Performed train-test splitting
-* Applied feature scaling using StandardScaler
+* Dataset cleaning
+* Null value handling
+* Feature selection
+* Label encoding
+* Train-test split
+* Feature scaling using StandardScaler
+
 
 ### Exploratory Data Analysis
 
-* Statistical summary of the dataset
-* Correlation matrix analysis
-* Heatmap visualization
-* Multicollinearity assessment
+* Statistical analysis
+* Correlation heatmap
+* Feature relationship analysis
+* Fire occurrence distribution
 
-### Machine Learning Models
 
-The following regression models were implemented and compared:
+### Models Implemented
 
-1. Linear Regression
-2. Ridge Regression (RidgeCV)
-3. Lasso Regression (LassoCV)
-4. Elastic Net Regression (ElasticNetCV)
+* Linear Regression
+* Ridge Regression (RidgeCV)
+* Lasso Regression (LassoCV)
+* Elastic Net Regression (ElasticNetCV)
 
-### Model Evaluation Metrics
 
-The models were evaluated using:
-
-* Mean Absolute Error (MAE)
-* R² Score
-
-## Results
+## Model Performance
 
 | Model             | MAE    | R² Score |
 | ----------------- | ------ | -------- |
@@ -66,28 +110,87 @@ The models were evaluated using:
 | ElasticNetCV      | 0.5782 | 0.9839   |
 | LassoCV           | 0.7085 | 0.9783   |
 
-### Best Performing Model
+### Best Model
 
-Linear Regression achieved the best overall performance:
+**Linear Regression**
 
 * MAE: 0.5468
 * R² Score: 0.9848
 
-The results indicate that the model can accurately predict Fire Weather Index values while maintaining a low prediction error.
 
-## Technologies Used
+## Tech Stack
+
+### Backend
 
 * Python
-* Pandas
+* Flask
 * NumPy
-* Matplotlib
-* Seaborn
+* Pandas
 * Scikit-Learn
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Chart.js
+
+### Model Serialization
+
 * Pickle
 
-## Model Deployment Preparation
 
-The trained model and scaler were serialized using Pickle to enable future deployment and integration into web applications.
+## Project Structure
+
+Algerian_forest_fire_Prediction/
+│── app.py
+│── requirements.txt
+│── README.md
+│── Algerian_forest_fires_model.pkl
+│── Algerian_forest_fires_scaler.pkl
+│── Algerian_forest_fires_cleaned_dataset.csv
+│
+├── Templates/
+│   ├── index.html
+│   ├── prediction.html
+│   ├── analytics.html
+│   └── about.html
+│
+├── Static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+└── Notebooks/
+
+
+
+
+## Installation
+
+Clone the repository:
+
+bash
+git clone https://github.com/Rithi123456/Algerian_forest_fire_Prediction.git
+
+
+Move into project directory:
+
+bash
+cd Algerian_forest_fire_Prediction
+
+
+Install dependencies:
+
+bash
+pip install -r requirements.txt
+
+
+Run the Flask app:
+
+bash
+python app.py
+
 
 ## Author
 
