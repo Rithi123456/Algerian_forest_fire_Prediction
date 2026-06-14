@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fire Risk Prediction</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',
+          filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🔥 Forest Fire Intelligence</div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="prediction-container">
+      <h1>Fire Risk Prediction</h1>
+
+      <form action="/predictdata" method="POST">
+        <div class="input-grid">
+          <input
+            type="number"
+            step="any"
+            name="Temperature"
+            placeholder="Temperature"
+          />
+
+          <input
+            type="number"
+            step="any"
+            name="RH"
+            placeholder="Relative Humidity"
+          />
+
+          <input type="number" step="any" name="Ws" placeholder="Wind Speed" />
+
+          <input type="number" step="any" name="Rain" placeholder="Rain" />
+
+          <input type="number" step="any" name="FFMC" placeholder="FFMC" />
+
+          <input type="number" step="any" name="DMC" placeholder="DMC" />
+
+          <input type="number" step="any" name="ISI" placeholder="ISI" />
+
+          <select name="Classes">
+            <option value="">Select Class</option>
+
+            <option value="0">Not Fire</option>
+
+            <option value="1">Fire</option>
+          </select>
+
+          <select name="Region">
+            <option value="">Select Region</option>
+
+            <option value="0">Bejaia Region</option>
+
+            <option value="1">Sidi-Bel Abbes Region</option>
+          </select>
+        </div>
+
+        <button type="submit" class="predict-btn">Predict Risk</button>
+      </form>
+
+      {% if prediction %}
+
+      <div class="result-container">
+        <div class="result-card">
+          <h3>FWI SCORE</h3>
+
+          <h1>{{ prediction }}</h1>
+        </div>
+
+        <div class="result-card">
+          <h3>RISK LEVEL</h3>
+
+          <h2>{{ risk }}</h2>
+        </div>
+
+        <div class="result-card">
+          <h3>RECOMMENDATION</h3>
+
+          <p>{{ recommendation }}</p>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+  </body>
+</html>

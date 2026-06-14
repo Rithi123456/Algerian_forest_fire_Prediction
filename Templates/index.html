@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forest Fire Intelligence System</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🔥 Forest Fire Intelligence</div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Forest Fire Intelligence & Risk Monitoring System</h1>
+
+        <p>
+          Predict forest fire risk using Machine Learning, environmental data
+          analytics, and real-time risk assessment.
+        </p>
+
+        <a href="/prediction">
+          <button class="cta-btn">Start Prediction</button>
+        </a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="{{ url_for('static', filename='images/Forest_fire.jpg') }}"
+          alt="Forest Fire"
+        />
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <h2>244</h2>
+        <p>Total Records</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>138</h2>
+        <p>Fire Cases</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>98.48%</h2>
+        <p>Model R² Score</p>
+      </div>
+    </section>
+  </body>
+</html>

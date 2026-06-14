@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">Forest Fire Intelligence</div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+      </ul>
+    </nav>
+
+    <div class="prediction-container">
+      <h1>Analytics Dashboard</h1>
+
+      <h2 style="text-align: center; margin-top: 20px">
+        Latest Prediction Analytics
+      </h2>
+
+      <div class="result-container">
+        <div class="result-card">
+          <h3>FWI Score</h3>
+          <h1>
+            {{ latest_prediction.prediction if latest_prediction else '--' }}
+          </h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Risk Level</h3>
+          <h1>{{ latest_prediction.risk if latest_prediction else '--' }}</h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Temperature</h3>
+          <h1>
+            {{ latest_prediction.temperature if latest_prediction else '--' }}
+            °C
+          </h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Humidity</h3>
+          <h1>
+            {{ latest_prediction.humidity if latest_prediction else '--' }} %
+          </h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Wind Speed</h3>
+          <h1>
+            {{ latest_prediction.windspeed if latest_prediction else '--' }}
+          </h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Region</h3>
+          <h1>{{ latest_prediction.region if latest_prediction else '--' }}</h1>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <h2>Latest Prediction Factors</h2>
+
+        <canvas
+          id="predictionChart"
+          data-temperature="{{ temperature }}"
+          data-humidity="{{ humidity }}"
+          data-windspeed="{{ windspeed }}"
+          data-rain="{{ rain }}"
+        ></canvas>
+      </div>
+
+      <h2 style="text-align: center; margin-top: 40px">Dataset Analytics</h2>
+
+      <div class="result-container">
+        <div class="result-card">
+          <h3>Total Records</h3>
+          <h1>{{ total_records }}</h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Average Temperature</h3>
+          <h1>{{ avg_temp }}</h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Average FWI</h3>
+          <h1>{{ avg_fwi }}</h1>
+        </div>
+
+        <div class="result-card">
+          <h3>Fire Cases</h3>
+          <h1>{{ fire_cases }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
