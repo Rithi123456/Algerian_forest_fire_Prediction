@@ -1,4 +1,4 @@
-Pandas
-Numpy 
+pandas
+numpy 
 scikit-learn
 Flask
